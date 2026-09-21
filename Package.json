@@ -1,0 +1,13 @@
+{
+  "name": "vlu-walking-skeleton",
+  "version": "1.0.0",
+  "description": "Walking Skeleton: form đăng nhập + Jest unit test + GitHub Actions CI",
+  "main": "login.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "license": "ISC",
+  "devDependencies": {
+    "jest": "^29.7.0"
+  }
+}
