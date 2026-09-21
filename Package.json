@@ -1,12 +1,12 @@
 {
-  "name": "vlu-walking-skeleton",
+  "name": "vlu-qe-pipeline-master",
   "version": "1.0.0",
-  "description": "Walking Skeleton: form đăng nhập + Jest unit test + GitHub Actions CI",
-  "main": "login.js",
+  "description": "VLU QE Pipeline Lab 01 Version 2.0",
+  "main": "auth.js",
   "scripts": {
-    "test": "jest"
+    "test:smoke": "jest auth.smoke.test.js",
+    "test:regression": "jest auth.regression.test.js"
   },
-  "license": "ISC",
   "devDependencies": {
     "jest": "^29.7.0"
   }
