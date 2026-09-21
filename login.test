@@ -1,0 +1,42 @@
+const { login } = require('./login');
+
+describe('login() - Unit Test', () => {
+  // ----- Thông tin hợp lệ -----
+  test('đăng nhập thành công với username và password đúng', () => {
+    const result = login('admin', '123456');
+    expect(result.success).toBe(true);
+    expect(result.message).toBe('Đăng nhập thành công');
+  });
+
+  // ----- Thông tin không hợp lệ -----
+  test('đăng nhập thất bại khi sai mật khẩu', () => {
+    const result = login('admin', 'saimatkhau');
+    expect(result.success).toBe(false);
+    expect(result.message).toBe('Sai tên đăng nhập hoặc mật khẩu');
+  });
+
+  test('đăng nhập thất bại khi sai username', () => {
+    const result = login('user123', '123456');
+    expect(result.success).toBe(false);
+  });
+
+  test('đăng nhập thất bại khi username rỗng', () => {
+    const result = login('', '123456');
+    expect(result.success).toBe(false);
+    expect(result.message).toBe('Vui lòng nhập tên đăng nhập');
+  });
+
+  test('đăng nhập thất bại khi password rỗng', () => {
+    const result = login('admin', '');
+    expect(result.success).toBe(false);
+    expect(result.message).toBe('Vui lòng nhập mật khẩu');
+  });
+
+  test('đăng nhập thất bại khi cả username và password đều rỗng', () => {
+    expect(login('', '').success).toBe(false);
+  });
+
+  test('username phân biệt hoa/thường (ADMIN không hợp lệ)', () => {
+    expect(login('ADMIN', '123456').success).toBe(false);
+  });
+});
